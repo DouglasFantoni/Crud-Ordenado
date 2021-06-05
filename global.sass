@@ -1,0 +1,84 @@
+// Imports básicos do framework
+$myFonts: ('Confortaa' :'https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&display=swap')
+
+@use '/var/www/html/cdn/public/frameworks/flexdef/dist/mixins' as *
+@use '/var/www/html/cdn/public/frameworks/flexdef/dist/reset'
+@use '/var/www/html/cdn/public/frameworks/flexdef/dist/functions'
+@use '/var/www/html/cdn/public/frameworks/flexdef/dist/colors' as *
+@use '/var/www/html/cdn/public/frameworks/flexdef/dist/custom-grid'
+@use '/var/www/html/cdn/public/frameworks/flexdef/dist/variables'
+@use '/var/www/html/cdn/public/frameworks/flexdef/dist/fonts' as * with ($fonts: $myFonts)
+
+// Imports dos componentes utilizados
+@use '/var/www/html/cdn/public/frameworks/flexdef/components/basics'
+@use '/var/www/html/cdn/public/frameworks/flexdef/components/custom-input' with ($container-margin: 16px, $form-size: 50px)
+@use '/var/www/html/cdn/public/frameworks/flexdef/components/custom-modal'
+
+$m-large: 100px
+$m-medium: 50px
+$m-small: 25px
+$m-miny: 14px
+
+$fontSize-extraLarge: 40px
+$fontSize-large: 26px
+$fontSize-medium: 20px
+$fontSize-small: 16px
+
+$border: 12px
+
+#container-crud
+
+
+  form
+    padding: $m-small
+    margin: 0 auto
+
+  .buttons
+    justify-content: space-around
+
+#container-list
+  > div
+    border: 1px solid $gray-light
+    border-radius: $border/2
+    padding: $m-small
+    margin-top: $m-medium
+
+  header
+    > div:first-of-type
+      justify-content: space-between
+      align-items: center
+      .group
+        margin: 0
+        max-width: 200px
+#list
+  li
+    padding: $m-miny 0
+    &:after
+      content: ''
+      background: $gray-light
+      height: 1px
+      display: block
+      margin-top: 5px
+
+*
+  font-family: $fd
+
+.line
+  @include line($gray-light, $m-miny 0)
+
+body
+  margin-top: $m-medium
+.card
+  border-radius: $border
+  box-shadow: 3px 3px 19px -4px rgba(184, 184, 184, 0.87)
+
+a, button
+  @include btn-st1-medium(whitesmoke, #06aaaa)
+
+.btn-delete
+  content: 'X'
+  border-radius: 50%
+  padding: $m-miny
+  background: red
+  margin-right: 5px
+
