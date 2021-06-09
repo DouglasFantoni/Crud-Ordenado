@@ -11,7 +11,7 @@
 <section id="container-crud">
     <div class="container">
         <div class="grid-container">
-            <form id="form" class="col-md-6 card" >
+            <form id="form" class="col-md-10 card" >
                 <div class="row ">
                     <div class="group ">
                         <input id="inp1" name="nome" placeholder=" "  class="" type="text" required >
@@ -24,7 +24,7 @@
                         <label for="inp2">Idade</label>
                     </div>
                 </div>
-                <div class="row buttons">
+                <div class=" buttons">
                     <button type="reset">Limpar</button>
                     <button type="button" onclick="savePeople($('#form'))">Salvar</button>
                 </div>
@@ -49,7 +49,7 @@
                 <div class="d-flex">
                     <h3>Pessoas</h3>
                     <div class="group">
-                        <input id="inp3" name="Pesquisar..." placeholder=" " type="text" onchange="filterList(this.value)" required >
+                        <input id="inp3" name="Pesquisar..." placeholder=" " type="text" oninput="filterList(this.value)" required >
                         <span class="bar"></span>
                         <label for="inp3">Pesquisar</label>
                     </div>

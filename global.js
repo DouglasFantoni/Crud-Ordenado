@@ -21,11 +21,18 @@ const savePeople = (form) => {
     generateList(list)
 }
 
-const filterList = () => {
+const filterList = (word) => {
+    const newList = list.filter(people => {
+        let str = people.nome +' '+ people.idade;
 
+        return str.toUpperCase().indexOf(word.toUpperCase()) > -1
+    })
+
+    generateList(newList)
 }
+
 const  deletePeople = (event) => {
-    delete list[event.target.parentElement.value]
+    list.splice(event.target.parentElement.value, 1);
     generateList(list)
 }
 
@@ -35,8 +42,8 @@ const _getElements = () => {
     let text = document.createElement('label');
     button.className = 'btn-delete';
     button.onclick = deletePeople;
-    button.innerText = 'X'
-    return [item, button, text]
+    button.innerText = 'X';
+    return [item, button, text];
 }
 const generateList = (list = null) => {
     $('#list >').remove();
@@ -44,9 +51,9 @@ const generateList = (list = null) => {
         [listItem, button, text ] = _getElements()
         text.innerText = e.nome + ' | '+e.idade + ' anos';
         listItem.value = index;
-        listItem.appendChild(button)
-        listItem.appendChild(text)
-        $('#list').append(listItem)
+        listItem.appendChild(button);
+        listItem.appendChild(text);
+        $('#list').append(listItem);
     })
 }
 
@@ -66,7 +73,6 @@ function shellSort(lista) {
         for (i = tamanhoSecao; i < lista.length; i++) {
             var j = i;
             var temp = lista[i];
-            console.log(i,temp)
 
             while (j >= tamanhoSecao && lista[j-tamanhoSecao].idade > temp.idade) {
                 lista[j] = lista[j-tamanhoSecao];
@@ -81,7 +87,6 @@ function shellSort(lista) {
             tamanhoSecao = parseInt(tamanhoSecao*5 / 11);
         }
     }
-
 
     list = lista;
 }

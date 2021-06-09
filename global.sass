@@ -10,9 +10,9 @@ $myFonts: ('Confortaa' :'https://fonts.googleapis.com/css2?family=Comfortaa:wght
 @use '/var/www/html/cdn/public/frameworks/flexdef/dist/fonts' as * with ($fonts: $myFonts)
 
 // Imports dos componentes utilizados
-@use '/var/www/html/cdn/public/frameworks/flexdef/components/basics'
-@use '/var/www/html/cdn/public/frameworks/flexdef/components/custom-input' with ($container-margin: 16px, $form-size: 50px)
-@use '/var/www/html/cdn/public/frameworks/flexdef/components/custom-modal'
+@use '/var/www/html/cdn/public/frameworks/flexdef/components/basics' with ($container-width: 600px)
+@use '/var/www/html/cdn/public/frameworks/flexdef/components/custom-input' with ($container-margin: 16px 0, $form-size: 50px)
+//@use '/var/www/html/cdn/public/frameworks/flexdef/components/custom-modal'
 
 $m-large: 100px
 $m-medium: 50px
@@ -27,21 +27,21 @@ $fontSize-small: 16px
 $border: 12px
 
 #container-crud
-
-
   form
-    padding: $m-small
+    padding: $m-medium
     margin: 0 auto
 
   .buttons
-    justify-content: space-around
+    justify-content: space-between
+    display: flex
+    margin-top: $m-small
 
 #container-list
   > div
     border: 1px solid $gray-light
     border-radius: $border/2
     padding: $m-small
-    margin-top: $m-medium
+    margin: $m-medium auto
 
   header
     > div:first-of-type
@@ -83,6 +83,11 @@ a, button
   top: -2px
   left: -2px
   font-size: 12px
-  background: red
+  background: #9a3737
   margin-right: 5px
+
+  &:hover
+    background: #ff6f6f
+    transition: none
+
 
