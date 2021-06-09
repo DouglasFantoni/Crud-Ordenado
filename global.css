@@ -153,8 +153,8 @@ a:hover {
 
 .row {
   display: flex;
-  margin-left: -5px;
-  margin-right: -5px;
+  margin-left: -2.5px;
+  margin-right: -2.5px;
   flex-wrap: wrap;
 }
 .row:before, .row:after {
@@ -165,18 +165,21 @@ a:hover {
   clear: both;
 }
 
-.row .row {
+.row-full-height {
   display: flex;
   margin-left: -2.5px;
   margin-right: -2.5px;
   flex-wrap: wrap;
 }
-.row .row:before, .row .row:after {
+.row-full-height:before, .row-full-height:after {
   content: "";
   display: table;
 }
-.row .row:after {
+.row-full-height:after {
   clear: both;
+}
+.row-full-height *[class^=col] > * {
+  height: 100%;
 }
 
 .col {
@@ -554,7 +557,6 @@ a:hover {
   padding: 20px 16px 6px;
   border: 1px solid #989898;
   border-radius: 3px;
-  font-size: 16px;
   width: 100%;
   box-shadow: none;
   height: 50px;
@@ -573,7 +575,6 @@ a:hover {
 }
 .group > input:valid ~ label, .group > input:focus ~ label, .group > input:not(:placeholder-shown) ~ label, .custom-input > input:valid ~ label, .custom-input > input:focus ~ label, .custom-input > input:not(:placeholder-shown) ~ label {
   transform: translateY(-22px) scale(0.8);
-  font-size: 16px;
   color: #00008B;
   left: 0;
   text-shadow: 0 0 0 #00008B;
@@ -583,7 +584,6 @@ a:hover {
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 16px;
   color: #989898;
   transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), left 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: text;
@@ -773,7 +773,11 @@ a:hover, a:active, a:focus, button:hover, button:active, button:focus {
 .btn-delete {
   content: "X";
   border-radius: 50%;
-  padding: 14px;
+  padding: 5px 8px;
+  position: relative;
+  top: -2px;
+  left: -2px;
+  font-size: 12px;
   background: red;
   margin-right: 5px;
 }

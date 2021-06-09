@@ -11,7 +11,7 @@
 <section id="container-crud">
     <div class="container">
         <div class="grid-container">
-            <form class="col-md-6 card" onsubmit="savePeople()">
+            <form id="form" class="col-md-6 card" >
                 <div class="row ">
                     <div class="group ">
                         <input id="inp1" name="nome" placeholder=" "  class="" type="text" required >
@@ -26,7 +26,7 @@
                 </div>
                 <div class="row buttons">
                     <button type="reset">Limpar</button>
-                    <button type="submit">Salvar</button>
+                    <button type="button" onclick="savePeople($('#form'))">Salvar</button>
                 </div>
             </form>
 
@@ -58,7 +58,6 @@
             </header>
             <div class="content mt-2">
                 <ul id="list">
-
                 </ul>
             </div>
         </div>
